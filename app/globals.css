@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Tamanho do cubo */
+  --cube-size: 75px;
+  --cube-depth: calc(var(--cube-size) / 2);
+
+  /* Cores principais */
+  --color-top: hsl(332, 21%, 88%);
+  --glow-color: hsl(330, 80%, 70%); /* pink glow */
+
+  /* Gradiente: transição do color-top para rosa */
+  --gradient-stops:
+    var(--color-top) 0%,
+    hsl(332, 60%, 80%) 25%,
+    hsl(332, 70%, 70%) 50%,
+    hsl(332, 80%, 60%) 75%,
+    hsl(350, 90%, 50%) 100%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-degular: var(--font-degular);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-degular);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+canvas {
+  touch-action: none;
+}
+
+/* From Uiverse.io by andrew-demchenk0 */
+
+.cube-loader {
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateX(-30deg) rotateY(0);
+  }
+
+  100% {
+    transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+
+.cube-loader .cube-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cube-loader .cube-wrapper .cube-span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(calc(90deg * var(--i))) translateZ(var(--cube-depth));
+  background: linear-gradient(to bottom,
+      var(--gradient-stops));
+}
+
+.cube-top {
+  position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  background: var(--color-top);
+  transform: rotateX(90deg) translateZ(var(--cube-depth));
+  transform-style: preserve-3d;
+}
+
+.cube-top::before {
+  content: '';
+  position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  background: var(--glow-color);
+  transform: translateZ(calc(-2 * var(--cube-depth)));
+  filter: blur(10px);
+  box-shadow:
+    0 0 10px #585858,
+    0 0 20px var(--glow-color),
+    0 0 30px #585858,
+    0 0 40px var(--glow-color);
+}
