@@ -136,7 +136,7 @@ export default function HeartModel(props: JSX.IntrinsicElements['group']) {
         material-transparent
         material-opacity={0}
       >
-        Medina
+        Devumma
       </Text>
       <mesh
         ref={heartRef}
