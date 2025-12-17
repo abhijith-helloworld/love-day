@@ -23,7 +23,7 @@ export const stageArray: Stage[] = [
   },
   {
     id: 'carousel',
-    buttonText: 'Eu tenho um Pedido...',
+    buttonText: 'love you too...',
     fadeIn: 1500,
     fadeOut: 500,
     delay: 30000

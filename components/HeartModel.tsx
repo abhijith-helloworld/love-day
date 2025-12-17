@@ -124,7 +124,7 @@ export default function HeartModel(props: JSX.IntrinsicElements['group']) {
         material-transparent
         material-opacity={0}
       >
-        Eu te amo
+        love you too...
       </Text>
       <Text
         ref={textRef2}

@@ -41,8 +41,8 @@ const degular = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Medina",
-  description: "Eu tenho um pedido...",
+  title: "Devumma",
+  description: "love you too...",
 };
 
 export default function RootLayout({
